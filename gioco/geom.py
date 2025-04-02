@@ -23,6 +23,7 @@ def circle_area(radius):
     
     return math.pi * (radius ** 2)
 
+
 def circumference(radius):
     """Calculate the circumference of a circle given the radius."""
      # Check if the argument is missing
@@ -36,6 +37,22 @@ def circumference(radius):
         raise ValueError("Radius must be greater than zero.")
     
     return 2 * math.pi * radius
+
+
+def rect_area(b,h):
+    """Calculate the area of a rectangle given the base and height."""
+    # Check if any arguments are missing
+    if b is None or h is None:
+        raise TypeError("Missing required arguments: 'b' and 'h'")
+    # Check if both arguments are numbers
+    if not isinstance(b, (int, float)) or not isinstance(h, (int, float)):
+        raise TypeError("Both 'b' and 'h' must be numbers")
+    # Check if both arguments are greater than zero
+    if b <= 0 or h <= 0:
+        raise ValueError("Both 'b' and 'h' must be greater than zero")
+
+    return b*h
+
 
 def tri_area(b,h):
     """Calculate the area of a triangle given the base and height."""
