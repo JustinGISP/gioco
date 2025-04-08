@@ -15,7 +15,7 @@ def circle_area(radius):
     if radius is None:
         raise TypeError(f"{missingArgError}: radius")
     # Check if the argument is a number
-    if not isinstance(radius, (int, float)):
+    if not isinstance(radius, (int, float)) or isinstance(radius, bool):
         raise TypeError("Radius must be a number")
     # Check if the argument is a greater than zero
     if radius <= 0:
@@ -30,7 +30,7 @@ def circumference(radius):
     if radius is None:
         raise TypeError(f"{missingArgError}: radius")
     # Check if the argument is a number
-    if not isinstance(radius, (int, float)):
+    if not isinstance(radius, (int, float)) or isinstance(radius, bool):
         raise TypeError("Radius must be a number")
     # Check if the argument is greater than zero
     if radius <= 0:
@@ -45,7 +45,7 @@ def cube_vol(side):
     if side is None:
         raise TypeError(f"{missingArgError}: side")
     # Check if the argument is a number
-    if not isinstance(side, (int, float)):
+    if not isinstance(side, (int, float)) or isinstance(side, bool):
         raise TypeError("Side length must be a number")
     # Check if the argument is greater than zero
     if side <= 0:
@@ -60,7 +60,7 @@ def rect_area(b,h):
     if b is None or h is None:
         raise TypeError("Missing required arguments: 'b' and 'h'")
     # Check if both arguments are numbers
-    if not isinstance(b, (int, float)) or not isinstance(h, (int, float)):
+    if (not isinstance(b, (int, float)) or isinstance(b, bool)) or (not isinstance(h, (int, float)) or isinstance(h, bool)):
         raise TypeError("Both 'b' and 'h' must be numbers")
     # Check if both arguments are greater than zero
     if b <= 0 or h <= 0:
@@ -68,6 +68,19 @@ def rect_area(b,h):
 
     return b*h
 
+def sphere_vol(radius):
+    """Calculate the circumference of a circle given the radius."""
+     # Check if the argument is missing
+    if radius is None:
+        raise TypeError(f"{missingArgError}: radius")
+    # Check if the argument is a number
+    if not isinstance(radius, (int, float)) or isinstance(radius, bool):
+        raise TypeError("Radius must be a number")
+    # Check if the argument is greater than zero
+    if radius <= 0:
+        raise ValueError("Radius must be greater than zero.")
+    
+    return (4/3) * math.pi * (radius**3)
 
 def tri_area(b,h):
     """Calculate the area of a triangle given the base and height."""
@@ -75,7 +88,7 @@ def tri_area(b,h):
     if b is None or h is None:
         raise TypeError("tri_area() missing required arguments: 'b' and 'h'")
     # Check if both arguments are numbers
-    if not isinstance(b, (int, float)) or not isinstance(h, (int, float)):
+    if (not isinstance(b, (int, float)) or isinstance(b, bool)) or (not isinstance(h, (int, float)) or isinstance(h, bool)):
         raise TypeError("Both 'b' and 'h' must be numbers")
     # Check if both arguments are greater than zero
     if b <= 0 or h <= 0:
