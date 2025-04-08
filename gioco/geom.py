@@ -39,6 +39,21 @@ def circumference(radius):
     return 2 * math.pi * radius
 
 
+def cube_vol(side):
+    """Calculate the volume of a cube given the length of a side."""
+     # Check if the argument is missing
+    if side is None:
+        raise TypeError(f"{missingArgError}: side")
+    # Check if the argument is a number
+    if not isinstance(side, (int, float)):
+        raise TypeError("Side length must be a number")
+    # Check if the argument is greater than zero
+    if side <= 0:
+        raise ValueError("Side length must be greater than zero.")
+    
+    return side**3 
+
+
 def rect_area(b,h):
     """Calculate the area of a rectangle given the base and height."""
     # Check if any arguments are missing
