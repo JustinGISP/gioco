@@ -9,6 +9,7 @@ import math
 # Define common errors
 missingArgError = "Missing a required argument"
 
+
 def circle_area(radius):
     """Calculate the area of a circle given the radius."""
     # Check if the argument is missing
@@ -68,6 +69,22 @@ def rect_area(b,h):
 
     return b*h
 
+
+def sphere_area(radius):
+    """Calculate the circumference of a circle given the radius."""
+     # Check if the argument is missing
+    if radius is None:
+        raise TypeError(f"{missingArgError}: radius")
+    # Check if the argument is a number
+    if not isinstance(radius, (int, float)) or isinstance(radius, bool):
+        raise TypeError("Radius must be a number")
+    # Check if the argument is greater than zero
+    if radius <= 0:
+        raise ValueError("Radius must be greater than zero.")
+    
+    return 4 * math.pi * (radius**2)
+
+
 def sphere_vol(radius):
     """Calculate the circumference of a circle given the radius."""
      # Check if the argument is missing
@@ -81,6 +98,7 @@ def sphere_vol(radius):
         raise ValueError("Radius must be greater than zero.")
     
     return (4/3) * math.pi * (radius**3)
+
 
 def tri_area(b,h):
     """Calculate the area of a triangle given the base and height."""
